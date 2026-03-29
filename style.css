@@ -4,6 +4,7 @@ body {
     color: #000;
     margin: 0;
 }
+
 .container {
     max-width: 1110px;
     margin: 0 auto;
@@ -19,16 +20,17 @@ body {
 .header_menu {
     list-style: none;
     display: flex;
-    gap: clamp(8px, 3vw, 50px); 
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 50px);
     padding: 0;
     margin: 0;
 }
 
 .header_link {
     font-weight: 400;
-    font-size: clamp(10px, 2.5vw, 16px) 400;;
-    line-height: 164%;
-    letter-spacing: 0.1em; 
+    font-size: clamp(12px, 1.5vw, 16px);
+    line-height: 1;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #34547A;
     text-decoration: none;
@@ -51,7 +53,7 @@ body {
 }
 
 .hero_title {
-    font-size: 48px;
+    font-size: clamp(28px, 5vw, 48px);
     font-weight: 500;
     line-height: 1.64;
     margin-bottom: 20px;
@@ -66,7 +68,7 @@ body {
 }
 
 .hero_btn {
-    border: none; 
+    border: none;
     padding: 16px 30px;
     background-color: #34547A;
     color: #fff;
@@ -75,6 +77,7 @@ body {
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .hero_btn:hover {
@@ -88,24 +91,21 @@ body {
     text-align: center;
     padding: 100px 0;
 }
+
 #about h2 {
     font-size: 32px;
     font-weight: 500;
-    line-height: 1;      
-    text-align: center;
+    line-height: 1;
     margin-bottom: 25px;
 }
 
 #about p {
     max-width: 540px;
     margin: 0 auto;
-
     font-size: 16px;
     font-weight: 400;
     line-height: 1.64;
-
     color: #727272;
-    text-align: center;
 }
 
 /* PROJECTS */
@@ -117,18 +117,40 @@ body {
 
 #numbers .container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
 .num-item {
-    flex: 0 1 16.6%;
+    flex: 1 1 120px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .num-item img {
     max-width: 100%;
     height: auto;
+}
+
+.num-item_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.num-item_count {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.num-item_label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    opacity: 0.8;
 }
 
 /* WORK */
@@ -152,6 +174,7 @@ body {
     width: 100%;
     overflow: hidden;
 }
+
 .video-wrap::after {
     content: "";
     position: absolute;
@@ -163,6 +186,7 @@ body {
 .video-wrap img:first-child {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .play-btn {
@@ -170,14 +194,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    width: 100px;        
+    width: 100px;
     height: 100px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: none;
     background: transparent;
     cursor: pointer;
@@ -185,11 +206,13 @@ body {
 }
 
 /* FOOTER */
+
 footer {
     background-color: #34547A;
     color: #fff;
     padding: 50px 0;
 }
+
 .footer_content {
     text-align: left;
 }
@@ -202,4 +225,103 @@ footer {
 .footer_copy {
     font-size: 13px;
     opacity: 0.8;
+}
+
+/* MEDIA */
+
+@media (max-width: 768px) {
+    .header_menu {
+        gap: 24px;
+    }
+
+    .header_link {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 40px 0 60px;
+    }
+
+    .hero_content {
+        margin-top: 50px;
+        max-width: 100%;
+    }
+
+    #about {
+        padding: 60px 0;
+    }
+
+    #numbers {
+        padding: 50px 0;
+    }
+
+    .num-item {
+        flex: 1 1 40%;
+    }
+
+    #process {
+        padding: 60px 0 80px;
+    }
+}
+
+@media (max-width: 375px) {
+    .header_nav {
+        padding: 20px 0;
+    }
+
+    .header_menu {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .header_link {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 30px 0 50px;
+    }
+
+    .hero_content {
+        margin-top: 30px;
+    }
+
+    .hero_btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    #about {
+        padding: 50px 0;
+    }
+
+    #about h2,
+    #process h2 {
+        font-size: 24px;
+    }
+
+    #numbers {
+        padding: 40px 0;
+    }
+
+    .num-item {
+        flex: 1 1 100%;
+    }
+
+    #process {
+        padding: 50px 0 60px;
+    }
+
+    .process_text {
+        margin-bottom: 40px;
+    }
+
+    .play-btn {
+        width: 64px;
+        height: 64px;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
 }
